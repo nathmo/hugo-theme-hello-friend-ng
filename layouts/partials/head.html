@@ -77,3 +77,11 @@
 {{- if $.Site.Params.plausibleDataDomain }}
     <script defer data-domain="{{ .Site.Params.plausibleDataDomain }}" src="{{ .Site.Params.plausibleScriptSource }}"></script>
 {{- end}}
+
+<!-- Lucide Icons (ISC Licensed) -->
+<script src="/js/lucide.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    lucide.createIcons();
+  });
+</script>
