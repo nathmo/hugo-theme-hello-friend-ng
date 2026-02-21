@@ -354,9 +354,14 @@ ol ol {
   align-items: center;
   justify-content: start;
   margin: 0;
+  width: 100%;
+  max-width: 60%;
+  padding: 20px;
+  margin: 20px auto;
 
   @media #{$media-size-phone} {
     margin-top: 0;
+    max-width: 100%;
   }
 }
 
