@@ -347,21 +347,37 @@ ol ol {
   }
 }
 
+// Single source of truth for the reading-column width. `.posts` and `.post`
+// deliberately do NOT set their own max-width — layouts nest them inside
+// `.content`, so any constraint they added would multiply with this one.
 .content {
   display: flex;
   flex-direction: column;
   flex: 1 auto;
   align-items: center;
   justify-content: start;
-  margin: 0;
   width: 100%;
   max-width: 60%;
   padding: 20px;
   margin: 20px auto;
 
+  @media #{$media-size-tablet} {
+    max-width: 85%;
+  }
+
   @media #{$media-size-phone} {
     margin-top: 0;
     max-width: 100%;
+  }
+
+  // section.html and list.html render .content > .posts > .content. Without
+  // this reset the percentages compound (0.6 * 0.6 * 0.6 = 22% of the
+  // viewport), which is why the section index pages came out far narrower
+  // than the single pages that only nest one level.
+  .content {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
   }
 }
 
